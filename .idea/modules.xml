@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mcalendarview/mcalendarview.iml" filepath="$PROJECT_DIR$/mcalendarview/mcalendarview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/offlinemap/offlinemap.iml" filepath="$PROJECT_DIR$/offlinemap/offlinemap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tourBuilder/tourBuilder.iml" filepath="$PROJECT_DIR$/tourBuilder/tourBuilder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/withCommon/withCommon.iml" filepath="$PROJECT_DIR$/withCommon/withCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wizit1.iml" filepath="$PROJECT_DIR$/wizit1.iml" />
+    </modules>
+  </component>
+</project>
