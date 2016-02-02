@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding5"
+    android:background="@color/BlueLight"
+    tools:context="wizit.cm.wizit.ChangeRadius">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll2"
+        android:layout_below="@+id/seeOthCb"
+        android:weightSum="100">
+
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_weight="30"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"
+        android:textColorHighlight="#000"
+        android:id="@+id/RadiusEt"
+ />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="70"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text=" Search radius, km"
+        android:textColor="#000"
+        android:id="@+id/textView10"
+        android:layout_alignBaseline="@+id/RadiusEt"
+        android:layout_toRightOf="@+id/RadiusEt"
+        android:layout_toEndOf="@+id/RadiusEt" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:onClick="radOk"
+        android:layout_marginTop="10dp"
+        android:id="@+id/button9"
+    android:layout_below="@+id/ll3" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:text="I am visible for other users"
+        android:id="@+id/visiblecb"
+        android:checked="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll3"
+        android:layout_below="@+id/ll2"
+        android:weightSum="100">
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_weight="30"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/timeEt"
+        android:textColor="#000"
+        android:textColorHighlight="#000" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="70"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text=" Refresh time, sec"
+        android:textColor="#000"
+        android:id="@+id/textView4" />
+    </LinearLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:text="I can see other users"
+        android:id="@+id/seeOthCb"
+        android:layout_below="@+id/visiblecb"
+        android:layout_alignParentLeft="true"
+        android:checked="true" />
+
+</RelativeLayout>

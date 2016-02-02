@@ -1,0 +1,181 @@
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@color/BlueLight"
+    android:layout_height="fill_parent">
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:background="@color/BlueLight"
+    android:padding="5dp"
+    android:layout_height="fill_parent" tools:context="wizit.cm.wizit.User">
+
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/userpic"
+        android:clickable="true"
+        android:onClick="contexCam"
+        android:src="@drawable/camera"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:id="@+id/usernam"
+        android:clickable="true"
+        android:onClick="contexCam"
+        android:layout_below="@+id/userpic"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Role"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"
+        android:id="@+id/userType"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/usernam"
+
+        android:layout_gravity="center_horizontal" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="100"
+    android:layout_height="wrap_content">
+    <Spinner
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/lanSpin"
+        android:layout_weight="80"
+        android:layout_below="@+id/interU"
+        android:layout_alignParentLeft="true" />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_weight="20"
+        android:onClick="addLangU"
+        android:id="@+id/button6"
+        android:padding="10dp"
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:layout_alignTop="@+id/lanSpin"
+        android:layout_alignParentRight="true"
+        />
+</LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Langs"
+        android:maxLines="3"
+        android:scrollbars="vertical"
+        android:textColor="#000"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:onClick="contexCam"
+        android:id="@+id/myLangsU"
+        android:layout_below="@+id/lanSpin" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_height="wrap_content">
+    <Spinner
+        android:layout_width="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_height="wrap_content"
+        android:id="@+id/interSpU"
+        android:layout_weight="80"
+        android:layout_below="@+id/userType" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:padding="10dp"
+            android:layout_weight="20"
+            android:onClick="addInterU"
+            android:background="@drawable/nice_button"
+            android:textColor="#fff"
+            android:id="@+id/button4"
+            android:layout_alignTop="@+id/interSpU"
+            android:layout_alignParentRight="true" />
+
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Interests"
+        android:maxLines="3"
+        android:layout_marginBottom="10dp"
+        android:scrollbars="vertical"
+        android:clickable="true"
+        android:textColor="#000"
+        android:onClick="contexCam"
+        android:id="@+id/interU"
+        android:layout_below="@id/interSpU"
+/>
+
+
+
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:onClick="saveU"
+        android:id="@+id/button5"
+        android:layout_above="@+id/becGuiButt" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Become a Guide"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:onClick="BecomeGuide"
+        android:id="@+id/becGuiButt"
+        android:layout_above="@+id/logout"
+ />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:onClick="logout"
+        android:id="@+id/logout"
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#fff"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/photoGuideTab"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="13pt"
+        android:textStyle="bold"
+        android:id="@+id/guideNameTab"
+        android:text="guideName"
+        android:textColor="#000"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/photoGuideTab"
+        android:layout_toEndOf="@+id/photoGuideTab" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="11pt"
+        android:textColor="#000"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:id="@+id/guideSpecTab"
+        android:layout_below="@+id/guideNameTab"
+        android:layout_toRightOf="@+id/photoGuideTab"
+        android:layout_toEndOf="@+id/photoGuideTab"
+        android:text="guideSpec" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingGuiInTab"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_below="@+id/guideSpecTab"
+        android:layout_alignLeft="@+id/guideSpecTab"
+        android:layout_alignStart="@+id/guideSpecTab" />
+</RelativeLayout>

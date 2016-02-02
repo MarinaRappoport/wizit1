@@ -1,0 +1,102 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView04"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+
+<RelativeLayout  android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:padding="@dimen/padding5"
+    tools:context="wizit.cm.wizit.GuideActivity">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/GPhoto"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+      />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12pt"
+        android:text="Name"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:id="@+id/GName"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000"
+        android:layout_below="@+id/GPhoto"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Message"
+        android:textColor="#fff"
+        android:background="@drawable/nice_button"
+        android:onClick="messToGid"
+        android:layout_marginTop="10dp"
+        android:id="@+id/messToGid"
+        android:layout_below="@+id/button7" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Specialities"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/specsTV"
+        android:maxLines="10"
+        android:scrollbars="vertical"
+        android:textColor="#000"
+        android:layout_below="@+id/textView13"
+ />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tours"
+        android:onClick="openGuiTours"
+        android:id="@+id/guiToursOpen"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/messToGid"
+        android:background="@drawable/nice_button" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Specialities:"
+        android:id="@+id/textView13"
+        android:layout_below="@+id/GName"
+ />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBarG"
+        android:numStars="5"
+        android:layout_below="@+id/specsTV" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vote!"
+        android:layout_marginTop="10dp"
+        android:textColor="#fff"
+        android:id="@+id/button7"
+        android:background="@drawable/nice_button"
+        android:onClick="vote"
+        android:layout_below="@+id/ratingBarG" />
+
+</RelativeLayout>
+
+</ScrollView>
