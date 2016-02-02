@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/BlueLight"
+    android:padding="@dimen/padding5"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.with.tourbuild.Sure">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Are you sure?"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:onClick="yes"
+        android:id="@+id/sure"
+        android:layout_below="@+id/notSure"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="no"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:text="No"
+        android:id="@+id/notSure"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
+</RelativeLayout>
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/src/main/res/layout/activity_sure.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/build/intermediates/bundles/debug/res/layout/activity_sure.xml -->

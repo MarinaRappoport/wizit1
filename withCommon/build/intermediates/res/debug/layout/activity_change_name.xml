@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/BlueLight"
+    android:padding="@dimen/padding5"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.with.tourbuild.ChangeName">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Change Name"
+        android:textColor="#000"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:textColorHighlight="#000"
+        android:ems="10"
+        android:id="@+id/editName"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:onClick="yes"
+        android:id="@+id/button"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:layout_below="@+id/editName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Cancel"
+        android:background="@drawable/nice_button"
+        android:textColor="#fff"
+        android:onClick="no"
+        android:id="@+id/caname"
+        android:layout_below="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/src/main/res/layout/activity_change_name.xml -->

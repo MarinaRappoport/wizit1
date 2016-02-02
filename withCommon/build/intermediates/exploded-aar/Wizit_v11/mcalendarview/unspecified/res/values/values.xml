@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/mcalendarview/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="calendarViewPager" type="id"/>
+    <!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/mcalendarview/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">mCalendarView</string>
+</resources>

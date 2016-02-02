@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/register"
+        android:title="REGISTER">
+    </item>
+
+    <item
+        android:id="@+id/messToUs"
+        android:title="MESSAGE TO USER">
+    </item>
+
+    <item
+        android:id="@+id/decline"
+        android:title="DECLINE">
+    </item>
+
+</menu>

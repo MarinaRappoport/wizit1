@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.with.tourbuild.TourForTouristDetails">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/src/main/res/menu/menu_tor_for_tourist_details.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/build/intermediates/bundles/debug/res/menu/menu_tor_for_tourist_details.xml -->
