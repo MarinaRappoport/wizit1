@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/messToUs"
+        android:title="MESSAGE TO USER">
+    </item>
+
+</menu>
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/src/main/res/menu/registarion_requests.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/build/intermediates/bundles/debug/res/menu/registarion_requests.xml -->

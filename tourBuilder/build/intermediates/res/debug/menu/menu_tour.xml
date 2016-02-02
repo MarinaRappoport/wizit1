@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <group
+        android:id="@+id/startGroupTour"
+        android:visible="true" >
+        <item
+            android:id="@+id/tourDetails"
+            android:title="Details">
+        </item>
+        <item
+            android:id="@+id/save"
+            android:title="Save">
+        </item>
+        <item
+            android:id="@+id/cancel"
+            android:title="Cancel">
+        </item>
+        <!--<item-->
+            <!--android:id="@+id/clearTour"-->
+            <!--android:title="Clear">-->
+        <!--</item>-->
+    </group>
+
+</menu><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/src/main/res/menu/menu_tour.xml -->

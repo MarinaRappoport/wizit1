@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    
+    <group android:id="@+id/normalmode">
+        <item
+        android:id="@+id/addpoint"
+        android:title="Add New Point"/>
+        
+    <item
+        android:id="@+id/starttour"
+        android:title="Start Build Tour"/>
+    </group>
+    
+</menu><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/src/main/res/menu/menu_normal_mode.xml -->

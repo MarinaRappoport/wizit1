@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+   xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true" >
+        <shape>
+            <gradient
+               android:endColor="@color/NiceButtonStartColor"
+               android:startColor="@color/NiceButtonEndColor"
+               android:angle="270" />
+            <padding
+               android:left="0dp"
+               android:top="10dp"
+               android:right="0dp"
+               android:bottom="10dp" />
+        </shape>
+    </item>
+
+    <item android:state_focused="true" >
+        <shape>
+            <gradient
+               android:startColor="@color/NiceButtonStartColor"
+               android:endColor="@color/NiceButtonEndColor"
+               android:angle="270" />
+            <padding
+               android:left="0dp"
+               android:top="10dp"
+               android:right="0dp"
+               android:bottom="10dp" />
+        </shape>
+    </item>
+
+  <item android:state_enabled="false">
+          <shape>
+            <gradient
+               android:startColor="@color/NiceButtonDisabledStartColor"
+               android:endColor="@color/NiceButtonDisabledEndColor"
+               android:angle="270" />
+            <padding
+               android:left="0dp"
+               android:top="10dp"
+               android:right="0dp"
+               android:bottom="10dp" />
+        </shape>
+  </item>
+
+    <item>        
+        <shape>
+            <gradient
+               android:startColor="@color/NiceButtonStartColor"
+               android:endColor="@color/NiceButtonEndColor"
+               android:angle="270" />
+            <padding
+               android:left="0dp"
+               android:top="10dp"
+               android:right="0dp"
+               android:bottom="10dp" />
+        </shape>
+    </item>
+</selector><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/src/main/res/drawable-hdpi/nice_button.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/build/intermediates/exploded-aar/Wizit/withCommon/unspecified/res/drawable-hdpi/nice_button.xml -->

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/user" android:title="User"/>
+    <item android:id="@+id/becomeTourist" android:title="Become Tourist"/>
+    <item android:id="@+id/allConvers" android:title="All my conversations"/>
+    <item android:id="@+id/reqs" android:title="All My Requests"/>
+    <item android:id="@+id/calenGui" android:title="All My Tours"/>
+
+
+</menu><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/src/main/res/menu/start_menu.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/build/intermediates/bundles/debug/res/menu/start_menu.xml -->

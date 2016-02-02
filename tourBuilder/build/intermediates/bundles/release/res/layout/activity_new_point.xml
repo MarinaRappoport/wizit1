@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding5"
+    android:background="@color/BlueLight"
+    tools:context=".NewPointActivity" >
+
+    <TextView
+        android:id="@+id/nPoi"
+        android:textColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Point's of interest name" />
+
+    <EditText
+        android:id="@+id/namePoi"
+        android:textColor="#000"
+        android:textColorHighlight="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nPoi"
+        android:layout_below="@+id/nPoi"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/descPoi"
+        android:textColor="#000"
+        android:textColorHighlight="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/namePoi"
+        android:layout_below="@+id/textView1"
+        android:lines="3" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:textColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/descPoi"
+        android:layout_below="@+id/namePoi"
+        android:layout_marginTop="16dp"
+        android:text="Description"/>
+
+    <TextView
+        android:id="@+id/nameCordination"
+        android:layout_width="match_parent"
+        android:textColor="#000"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/descPoi"
+        android:layout_centerVertical="true"
+        android:text="Coordinates" />
+
+    <TextView
+        android:id="@+id/getCordination"
+        android:layout_width="match_parent"
+        android:textColor="#000"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/nameCordination"
+        android:layout_below="@+id/nameCordination"
+        android:ems="10"
+        android:lines="1" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/send"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/nice_button"
+        android:onClick="cancel"
+        android:text="Cancel" />
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:background="@drawable/nice_button"
+        android:onClick="send"
+        android:text="Send" />
+
+</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/tourBuilder/src/main/res/layout/activity_new_point.xml -->
