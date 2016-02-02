@@ -100,6 +100,10 @@ public class MapUsers extends Activity implements ServiceConnection, UpdateIF, I
         //for all public points
         Bitmap tourism = BitmapFactory.decodeResource(getResources(), com.with.tourbuilder.R.drawable.marker_gr_tourism);
         markerAttr = new BitmapDrawable(getResources(), tourism);
+
+//        for hotels
+        Bitmap hotel = BitmapFactory.decodeResource(getResources(), com.with.tourbuilder.R.drawable.marker_bb);
+        maekerHotel = new BitmapDrawable(getResources(), hotel);
     }
 
     @Override
