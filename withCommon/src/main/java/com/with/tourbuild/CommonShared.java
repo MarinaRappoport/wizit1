@@ -1,8 +1,15 @@
 package com.with.tourbuild;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 import java.util.Vector;
 
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -46,7 +53,7 @@ public class CommonShared {
 	public void ReadTours(List<ParseObject> objects) {
 		mTours.clear();
 		for(int i = 0; i<objects.size();i++) {
-			Tour tour = new Tour();
+			final Tour tour = new Tour();
 			tour.setmTourName(objects.get(i).getString("Name"));
 			tour.setmTourDescription(objects.get(i).getString("Description"));
 			tour.setmGuideName(objects.get(i).getString("GuideName"));
@@ -55,8 +62,17 @@ public class CommonShared {
 			tour.setmPrice(objects.get(i).getInt("Price"));
 			tour.setmRatesNumber(objects.get(i).getInt("RatesNumber"));
 			tour.setmParseObject(objects.get(i));
-			
-			
+
+			ParseFile parseFile = objects.get(i).getParseFile("image");
+			if (parseFile != null) {
+				parseFile.getDataInBackground(new GetDataCallback() {
+					@Override
+					public void done(byte[] bytes, ParseException e) {
+						tour.setmTourImage(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
+					}
+				});
+			}
+
 			List<ParseObject> pois = objects.get(i).getList("pois");
 			for (ParseObject parseObject : pois) {
 				Poi poi = findPoiById(parseObject.getObjectId());
@@ -68,9 +84,23 @@ public class CommonShared {
 		if (mUpdateGuiListener != null) {
 			mUpdateGuiListener.UpdateTours();
 		}
-		
 	}
-	
+
+	public ParseFile saveTourImToParse(Bitmap mBitmap, String tourName){
+		double w = mBitmap.getWidth();
+		double h = mBitmap.getHeight();
+		double cf = 180 / w;
+		double he = h * cf;
+
+		Bitmap resized = Bitmap.createScaledBitmap(mBitmap, 180, (int) he, true);
+
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		resized.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+		byte[] byteArray = stream.toByteArray();
+		final ParseFile parseFile = new ParseFile(tourName.replaceAll("\\W", "")+ ".jpg", byteArray);
+		return parseFile;
+	}
+
 	public void ReadGuides(List<ParseObject> objects) {
 		mGuides.clear();
 		for(int i = 0; i<objects.size();i++) {

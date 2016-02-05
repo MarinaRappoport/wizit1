@@ -4,4 +4,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>
-<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/withCommon/src/main/res/menu/menu_log_o.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/tourBuilder/build/intermediates/exploded-aar/Wizit_v11/withCommon/unspecified/res/menu/menu_log_o.xml -->
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/src/main/res/menu/menu_log_o.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/build/intermediates/exploded-aar/wizit1/withCommon/unspecified/res/menu/menu_log_o.xml -->

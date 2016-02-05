@@ -50,7 +50,7 @@ public class ToursActivity extends Activity implements UpdateGuiListener, IRegis
 		newMarker = d;
 
 		//if (myLocation == null) {
-			mMyLocation = new GeoPoint(32.332225, 34.86312);
+//			mMyLocation = new GeoPoint(32.332225, 34.86312);
 		//} else {
 //			mMyLocation = new GeoPoint(myLocation.getLatitude(),
 //					myLocation.getLongitude());
@@ -62,14 +62,19 @@ public class ToursActivity extends Activity implements UpdateGuiListener, IRegis
 //		mMapView = (MapView) findViewById(R.id.toursmap);
 		mMapView.setBuiltInZoomControls(true);
 		mMapView.getController().setZoom(14);
-		mMapView.getController().setCenter(mMyLocation);
+//		mMapView.getController().setCenter(mMyLocation);
 
 		Intent intent = getIntent();
 		mTourId = intent.getIntExtra("tourId", -1);
 		if (mTourId != -1) {
+			mMyLocation = new GeoPoint(
+					CommonShared.getInstance().getmTours().get(mTourId).getmPois().get(0).getmLat(),
+					CommonShared.getInstance().getmTours().get(mTourId).getmPois().get(0).getmLong());
+//			System.out.println("-------------------");
+			mMapView.getController().setCenter(mMyLocation);
 			ShowTour(mTourId);
 		}
-		 
+
 	}
 
 	@Override
@@ -132,6 +137,5 @@ public class ToursActivity extends Activity implements UpdateGuiListener, IRegis
 		mMapView.getOverlays().add(mPathOverlay);
 		mMapView.getOverlays().add(mPoisViewOverlay);
 
-		
 	}
 }

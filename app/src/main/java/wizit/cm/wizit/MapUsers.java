@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,6 +39,7 @@ import com.with.tourbuilder.PoisOverlay;
 import org.osmdroid.tileprovider.IRegisterReceiver;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.OverlayItem;
 
 import java.util.ArrayList;
@@ -45,22 +47,22 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
-public class MapUsers extends Activity implements ServiceConnection, UpdateIF, IRegisterReceiver {
+public class MapUsers extends ActionBarActivity implements ServiceConnection, UpdateIF, IRegisterReceiver {
 
     private MapView mMapView;
     private HybridMap hybridMap;
     private GeoPoint mGeoPoint;
-    MyItemizedOverlay myItemizedOverlay;
-    ArrayList<OverlayItem> overlayItemArray;
-    GPS_Tracker gps;
-    Intent sintent;
-    Drawable newMarker;
+    private MyItemizedOverlay myItemizedOverlay;
+    private ArrayList<OverlayItem> overlayItemArray;
+    private GPS_Tracker gps;
+    private Intent sintent;
+    private Drawable newMarker;
 
     private Drawable markerAttr;
-    private Drawable maekerHotel;
+    private Drawable markerHotel;
     private Drawable markerInfo;
-//    private ArrayList<Poi> attractions;
-//    private PoisOverlay mPointOverlay = null;
+    private MyItemizedOverlayPublic myItemizedOverlayPublic;
+    private ArrayList<OverlayItem> overlayItemArrayPublic;
 
     @Override
     protected void onStart() {
@@ -80,8 +82,6 @@ public class MapUsers extends Activity implements ServiceConnection, UpdateIF, I
         UsersSing.getInstance();
         load();
 
-
-//        mMapView = (MapView) findViewById(R.id.mapview);
         hybridMap = (HybridMap) findViewById(R.id.hybridMap);
         mMapView = hybridMap.mv;
 
@@ -89,6 +89,7 @@ public class MapUsers extends Activity implements ServiceConnection, UpdateIF, I
         mMapView.getController().setZoom(14);
 
         overlayItemArray = new ArrayList<>();
+        overlayItemArrayPublic = new ArrayList<>();
 
         sintent = new Intent(getApplicationContext(), GPS_Tracker.class);
         startService(sintent);
@@ -103,7 +104,7 @@ public class MapUsers extends Activity implements ServiceConnection, UpdateIF, I
 
 //        for hotels
         Bitmap hotel = BitmapFactory.decodeResource(getResources(), com.with.tourbuilder.R.drawable.marker_bb);
-        maekerHotel = new BitmapDrawable(getResources(), hotel);
+        markerHotel = new BitmapDrawable(getResources(), hotel);
     }
 
     @Override
@@ -164,7 +165,6 @@ public class MapUsers extends Activity implements ServiceConnection, UpdateIF, I
             olItem.setMarker(newMarker);
             overlayItemArray.add(olItem);
         }
-
         addPoints();
     }
 
@@ -185,6 +185,7 @@ public class MapUsers extends Activity implements ServiceConnection, UpdateIF, I
 
     private void addPoints(){
         ParseQuery<ParseObject> queryAttr = ParseQuery.getQuery("Attractions");
+        queryAttr.setLimit(600);
         queryAttr.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
@@ -204,9 +205,36 @@ public class MapUsers extends Activity implements ServiceConnection, UpdateIF, I
                         OverlayItem item = new OverlayItem(poi.getmName(),
                                 poi.getmDescription(), new GeoPoint(poi.getmLat(), poi.getmLong()));
                         item.setMarker(markerAttr);
-                        overlayItemArray.add(item);
+                        overlayItemArrayPublic.add(item);
                     }
-                    updateMap();
+
+                    ParseQuery<ParseObject> queryHotel = ParseQuery.getQuery("Hotels");
+                    queryHotel.setLimit(600);
+                    queryHotel.findInBackground(new FindCallback<ParseObject>() {
+                        @Override
+                        public void done(List<ParseObject> objects, ParseException e) {
+                            if (e == null) {
+                                for (int i = 0; i < objects.size(); i++) {
+                                    Poi poi = new Poi();
+                                    poi.setmName(objects.get(i).getString("Name"));
+                                    poi.setmDescription(objects.get(i).getString("Description"));
+                                    ParseGeoPoint geoPoint = objects.get(i).getParseGeoPoint("GeoPoint");
+
+                                    poi.setmLat(geoPoint.getLatitude());
+                                    poi.setmLong(geoPoint.getLongitude());
+                                    poi.setmObjectId(objects.get(i).getObjectId());
+//                        poi.setType("attraction");
+//                        attractions.add(poi);
+
+                                    OverlayItem item = new OverlayItem(poi.getmName(),
+                                            poi.getmDescription(), new GeoPoint(poi.getmLat(), poi.getmLong()));
+                                    item.setMarker(markerHotel);
+                                    overlayItemArrayPublic.add(item);
+                                }
+                                updateMap();
+                            }
+                        }
+                    });
                 }
             }
         });
@@ -216,6 +244,10 @@ public class MapUsers extends Activity implements ServiceConnection, UpdateIF, I
         mMapView.getOverlays().remove(myItemizedOverlay);
         myItemizedOverlay = new MyItemizedOverlay(this, overlayItemArray);
         mMapView.getOverlays().add(myItemizedOverlay);
+
+        myItemizedOverlayPublic
+                = new MyItemizedOverlayPublic(this, overlayItemArrayPublic);
+        mMapView.getOverlays().add(myItemizedOverlayPublic);
     }
 
 }

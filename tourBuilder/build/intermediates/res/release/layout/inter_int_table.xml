@@ -38,4 +38,4 @@
         android:layout_below="@+id/interlNam"
         android:layout_alignLeft="@+id/interlNam"
         android:layout_alignStart="@+id/interlNam" />
-</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/withCommon/src/main/res/layout/inter_int_table.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/tourBuilder/build/intermediates/exploded-aar/Wizit_v11/withCommon/unspecified/res/layout/inter_int_table.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/src/main/res/layout/inter_int_table.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/build/intermediates/exploded-aar/wizit1/withCommon/unspecified/res/layout/inter_int_table.xml -->

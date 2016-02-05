@@ -67,4 +67,4 @@
         android:layout_below="@+id/textView8"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/tourBuilder/src/main/res/layout/rer_req_item.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/src/main/res/layout/rer_req_item.xml -->

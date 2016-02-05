@@ -1,5 +1,7 @@
 package com.with.tourbuild;
 
+import android.graphics.Bitmap;
+
 import java.util.Vector;
 
 import com.parse.ParseObject;
@@ -18,6 +20,16 @@ public class Tour {
 	private int            mRatesNumber;
 	private int            mPrice;
 	private ParseObject    mParseObject; //Tour object using for rating the tour
+
+	private Bitmap mTourImage;
+
+	public Bitmap getmTourImage() {
+		return mTourImage;
+	}
+
+	public void setmTourImage(Bitmap mTourImage) {
+		this.mTourImage = mTourImage;
+	}
 
 	public boolean isVoted() {
 		return isVoted;

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.with.tourbuild.CommonShared;
 import com.with.tourbuild.Poi;
@@ -89,6 +90,7 @@ public class NewPointActivity extends Activity {
 		object.put("Description", descriptionPoi);
 		poi.setmDescription(descriptionPoi);
 		object.put("GeoPoint", geoPoint);
+		object.put("Creator", ParseUser.getCurrentUser());
 		poi.setmLat(geoPoint.getLatitude());
 		poi.setmLong(geoPoint.getLongitude());
 		object.saveInBackground((new SaveCallback() {

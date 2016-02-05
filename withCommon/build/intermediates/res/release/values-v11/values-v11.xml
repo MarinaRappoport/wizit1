@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/withCommon/src/main/res/values-v11/colors.xml -->
+    <!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/src/main/res/values-v11/colors.xml -->
     <eat-comment/>
     <color name="BlueLight">#e3f2fd</color>
     <color name="Navy">#0d47a1</color>
@@ -12,7 +12,7 @@
     <item name="green" type="color">#4499CC00</item>
     <item name="grey" type="color">#555555</item>
     <item name="transparent" type="color">#00FFFFFF</item>
-    <!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/withCommon/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values-v11/values-v11.xml -->
+    <!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/values-v11/values-v11.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat.Inverse">
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>

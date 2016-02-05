@@ -2,12 +2,15 @@ package com.with.tourbuild;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +32,8 @@ public class TourForTouristDetails extends Activity {
     int tourId;
     Tour tour;
 
+    private ImageView mImageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +47,19 @@ public class TourForTouristDetails extends Activity {
                 tourNameTV   = (TextView)findViewById(R.id.tournFu);
                 tourDescrTV  = (TextView)findViewById(R.id.tourdFu);
                 tourPrice  = (TextView)findViewById(R.id.tourpFu);
+                mImageView = (ImageView) findViewById(R.id.imvTourImage);
+
+                if(tour.getmTourImage()!=null){
+                    mImageView.setImageBitmap(tour.getmTourImage());
+                }
+
                 tourNameTV.setText(tour.getmTourName());
                 tourDescrTV.setText(tour.getmTourDescription());
                 tourPrice.setText(String.valueOf(tour.getmPrice()));
                 rb = (RatingBar)findViewById(R.id.tourRat);
+                Drawable stars = rb.getProgressDrawable();
+                stars.setTint(Color.CYAN);
+
                 rb.setRating(tour.finRate());
             }
         }

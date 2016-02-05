@@ -88,4 +88,4 @@
         android:onClick="send"
         android:text="Send" />
 
-</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/tourBuilder/src/main/res/layout/activity_new_point.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/src/main/res/layout/activity_new_point.xml -->

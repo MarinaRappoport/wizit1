@@ -21,7 +21,7 @@ public class Poi {
 	private String workHours;
 	private String web;
 
-//	NEW!!!
+	//	NEW!!!
 
 
 	public String getmObjectId() {

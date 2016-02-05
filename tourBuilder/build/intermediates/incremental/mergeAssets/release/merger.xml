@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\Marina\AndroidStudioProjects\Wizit_v11\tourBuilder\src\main\assets"/></dataSet><dataSet config="release"><source path="C:\Users\Marina\AndroidStudioProjects\Wizit_v11\tourBuilder\src\release\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\Marina\AndroidStudioProjects\GitProject\wizit1\tourBuilder\src\main\assets"/></dataSet><dataSet config="release"><source path="C:\Users\Marina\AndroidStudioProjects\GitProject\wizit1\tourBuilder\src\release\assets"/></dataSet></merger>

@@ -179,38 +179,42 @@ public class ToursList extends Activity implements UpdateGuiListener {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("POI");
         query.findInBackground(new FindCallback<ParseObject>() {
 
-
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
 
                 if (e == null) {
                     CommonShared.getInstance().ReadPois(objects, "private");
 
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("TOUR");
+                    ParseQuery<ParseObject> query1 = ParseQuery.getQuery("Attractions");
+                    query1.findInBackground(new FindCallback<ParseObject>() {
+                          @Override
+                          public void done(List<ParseObject> objects, ParseException e) {
+                              CommonShared.getInstance().ReadPois(objects, "public");
 
+                              ParseQuery < ParseObject > query = ParseQuery.getQuery("TOUR");
 
-                    if (role.equals("guide")) {
-                        query.whereEqualTo("GuideName", MySing.getInstance().getName());
-                    }
-                    if (role.equals("tourist")) {
-                        query.whereEqualTo("GuideName", GuideSing.getInstance().getGuideArrayList().get(n).getmGuideName());
-                    }
+                              if (role.equals("guide")) {
+                                  query.whereEqualTo("GuideName", MySing.getInstance().getName());
+                              }
+                              if (role.equals("tourist")) {
+                                  query.whereEqualTo("GuideName", GuideSing.getInstance().getGuideArrayList().get(n).getmGuideName());
+                              }
 
-                    query.findInBackground(new FindCallback<ParseObject>() {
+                              query.findInBackground(new FindCallback<ParseObject>() {
 
-                        @Override
-                        public void done(List<ParseObject> objects,
-                                         ParseException e) {
-                            if (e == null) {
-                                CommonShared.getInstance().ReadTours(objects);
-                            }
-                        }
-
+                                  @Override
+                                  public void done(List<ParseObject> objects,
+                                                   ParseException e) {
+                                      if (e == null) {
+                                          CommonShared.getInstance().ReadTours(objects);
+                                      }
+                                  }
+                              });
+                          }
                     });
                 }
             }
         });
-
     }
 
     @Override

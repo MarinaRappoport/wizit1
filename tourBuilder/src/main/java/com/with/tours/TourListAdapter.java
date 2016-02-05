@@ -54,11 +54,17 @@ public class TourListAdapter extends BaseAdapter {
 		TextView tourName = (TextView) rl.findViewById(R.id.listTourName);
 		TextView tourDesc = (TextView) rl.findViewById(R.id.descInList);
 
+		ImageView imageView = (ImageView) rl.findViewById(R.id.imvTourSmall);
+
 		rb.setRating(CommonShared.getInstance().getmTours().get(position).finRate());
 		tourName.setText(CommonShared.getInstance().getmTours().get(position).getmTourName());
 		tourDesc.setText(CommonShared.getInstance().getmTours().get(position).getmTourDescription());
 
-
+		if(CommonShared.getInstance().getmTours().get(position).getmTourImage()!=null) {
+			imageView.setImageBitmap(CommonShared.getInstance().getmTours().get(position).getmTourImage());
+		} else {
+			imageView.setImageResource(R.drawable.no_image_tour1);
+		}
 		return rl;
 	}
 

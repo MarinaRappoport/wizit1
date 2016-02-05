@@ -1,5 +1,6 @@
 package com.with.tourbuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -30,6 +31,7 @@ import android.widget.Toast;
 import com.masa.tlalim.offlinemap.HybridMap;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -52,14 +54,12 @@ public class MainActivity extends ActionBarActivity implements IPostListener,IRe
 	PathOverlay            mPathOverlay = null;
 	Drawable newMarker;
 	Drawable markerAttr;
-	
-	
+
 	private void createPathOverlay() {
 		mPathOverlay  = new PathOverlay(Color.BLUE, this);
 		Paint pPaint = mPathOverlay.getPaint();
 	    pPaint.setStrokeWidth(5);
 	    mPathOverlay.setPaint(pPaint);
-		
 	}
 	
 	@Override
@@ -106,34 +106,33 @@ public class MainActivity extends ActionBarActivity implements IPostListener,IRe
 		mPointOverlay = new PoisOverlay(mMapView.getContext(), mOverlayItems, this);
 		mMapView.getOverlays().add(mPointOverlay);
 		addPois(mOverlayItems);
-		
 	}
 
 //	for what we need the newoverlay ???
 
 	public void addPois(final ArrayList<OverlayItem> newoverlay) {
-		ParseQuery<ParseObject> queryAttr = ParseQuery.getQuery("Attractions");
-		queryAttr.findInBackground(new FindCallback<ParseObject>() {
-			@Override
-			public void done(List<ParseObject> objects, ParseException e) {
-				if(e == null) {
-					CommonShared.getInstance().getmPois().clear();
-					CommonShared.getInstance().ReadPois(objects, "attraction");
-					updateGui("Pois");
-				}
-			}
-		});
-
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("POI");
 		//filter by guide
-//		query.whereEqualTo("Creator", ParseUser.getCurrentUser());
+		query.whereEqualTo("Creator", ParseUser.getCurrentUser());
 		query.findInBackground(new FindCallback<ParseObject>() {
 			@Override
 			public void done(List<ParseObject> objects, ParseException e) {
 
 				if (e == null) {
-//					CommonShared.getInstance().getmPois().clear();
+					CommonShared.getInstance().getmPois().clear();
 					CommonShared.getInstance().ReadPois(objects, "private");
+//					updateGui("Pois");
+				}
+			}
+		});
+
+		ParseQuery<ParseObject> queryAttr = ParseQuery.getQuery("Attractions");
+		queryAttr.findInBackground(new FindCallback<ParseObject>() {
+			@Override
+			public void done(List<ParseObject> objects, ParseException e) {
+				if(e == null) {
+//					CommonShared.getInstance().getmPois().clear();
+					CommonShared.getInstance().ReadPois(objects, "attraction");
 					updateGui("Pois");
 				}
 			}
@@ -252,29 +251,51 @@ public class MainActivity extends ActionBarActivity implements IPostListener,IRe
 
 		final ParseObject object = new ParseObject("TOUR");
 		Tour tour = CommonShared.getInstance().getmCurrentTour();
-				
+
 		object.put("Name", tour.getmTourName());
 		object.put("Price", tour.getmPrice());
 		object.put("Description", tour.getmTourDescription());
 		object.put("Type", tour.getmTourType());
 		object.put("GuideName", MySing.getInstance().getName());
 
-		for (Iterator iterator = tour.getmPois().iterator(); iterator.hasNext();) {
+		for (Iterator iterator = tour.getmPois().iterator(); iterator.hasNext(); ) {
 			Poi poi = (Poi) iterator.next();
-			object.add("pois",  ParseObject.createWithoutData("Poi", poi.getmObjectId()));
-			
+			object.add("pois", ParseObject.createWithoutData("Poi", poi.getmObjectId()));
+
 		}
-		
-		object.saveInBackground((new SaveCallback() {
-			public void done(ParseException e) {
-				if (e == null) {
-					Toast.makeText(a.getApplicationContext(), "Tour saved", Toast.LENGTH_LONG).show();
+
+//		save the tourpic to parse
+		if (tour.getmTourImage() != null) {
+			final ParseFile parseFile =
+					CommonShared.getInstance().saveTourImToParse(tour.getmTourImage(),tour.getmTourName());
+			parseFile.saveInBackground(new SaveCallback() {
+				@Override
+				public void done(ParseException e) {
+					if (e == null) {
+						object.put("image", parseFile);
+						object.saveInBackground((new SaveCallback() {
+							public void done(ParseException e) {
+								if (e == null) {
+									Toast.makeText(a.getApplicationContext(), "Tour saved", Toast.LENGTH_LONG).show();
+								} else {
+									Toast.makeText(a.getApplicationContext(), "Problem with network!", Toast.LENGTH_LONG).show();
+								}
+							}
+						}));
+					}
 				}
-				else {
-					Toast.makeText(a.getApplicationContext(), "Problem with network!", Toast.LENGTH_LONG).show();
+			});
+		} else {
+			object.saveInBackground((new SaveCallback() {
+				public void done(ParseException e) {
+					if (e == null) {
+						Toast.makeText(a.getApplicationContext(), "Tour saved", Toast.LENGTH_LONG).show();
+					} else {
+						Toast.makeText(a.getApplicationContext(), "Problem with network!", Toast.LENGTH_LONG).show();
+					}
 				}
-			}
-		}));
+			}));
+		}
 	}
 	
 	@Override
@@ -285,10 +306,7 @@ public class MainActivity extends ActionBarActivity implements IPostListener,IRe
 					new GeoPoint(data.getDoubleExtra("lat", 0), data.getDoubleExtra("lon", 0)));
 			item.setMarker(newMarker);
 			mPointOverlay.addItem(item);
-			
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
-
-
 }	

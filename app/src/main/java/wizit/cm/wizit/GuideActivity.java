@@ -2,6 +2,8 @@ package wizit.cm.wizit;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -42,6 +44,9 @@ public class GuideActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
         rb = (RatingBar)findViewById(R.id.ratingBarG);
+        Drawable stars = rb.getProgressDrawable();
+        stars.setTint(Color.CYAN);
+
         gPhoto = (ImageView)findViewById(R.id.GPhoto);
         gName = (TextView)findViewById(R.id.GName);
         gSpecs = (TextView)findViewById(R.id.specsTV);

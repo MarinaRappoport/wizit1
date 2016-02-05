@@ -36,8 +36,9 @@
         android:id="@+id/tourDescrTV"
         android:hint="description"
         android:textColor="@android:color/black"
-        android:layout_below="@+id/tourNameTV"
-        android:layout_alignParentLeft="true">
+        android:layout_below="@+id/imvTourImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
     <requestFocus />
 
     </EditText>
@@ -56,8 +57,6 @@
         <requestFocus />
 
     </EditText>
-
-
 
     <Button
         android:layout_width="match_parent"
@@ -80,5 +79,14 @@
         android:id="@+id/button6"
         android:layout_above="@+id/button4" />
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/imvTourImage"
+        android:onClick="changeTourImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
-<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/withCommon/src/main/res/layout/activity_tour_details.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/tourBuilder/build/intermediates/exploded-aar/Wizit_v11/withCommon/unspecified/res/layout/activity_tour_details.xml -->
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/src/main/res/layout/activity_tour_details.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/build/intermediates/exploded-aar/wizit1/withCommon/unspecified/res/layout/activity_tour_details.xml -->

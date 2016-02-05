@@ -45,6 +45,7 @@ public class MyItemizedOverlay extends ItemizedIconOverlay<OverlayItem> {
 	public boolean addItem(OverlayItem item) {
 		return super.addItem(item);
 	}
+
 	@Override
 	protected boolean onSingleTapUpHelper(final int index,
 			final OverlayItem item, final MapView mapView) {

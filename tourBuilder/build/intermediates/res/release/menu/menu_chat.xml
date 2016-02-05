@@ -3,4 +3,4 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context="com.with.tourbuild.Chat">
     <item android:id="@+id/refresh" android:title="Refresh" />
 </menu>
-<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/withCommon/src/main/res/menu/menu_chat.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/Wizit_v11/tourBuilder/build/intermediates/exploded-aar/Wizit_v11/withCommon/unspecified/res/menu/menu_chat.xml -->
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/src/main/res/menu/menu_chat.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/build/intermediates/exploded-aar/wizit1/withCommon/unspecified/res/menu/menu_chat.xml -->
