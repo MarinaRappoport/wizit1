@@ -1,7 +1,9 @@
 package com.with.tourbuild;
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -316,7 +318,6 @@ public class MySing {
             myInterests = (ArrayList<String>) user.get("Interests");
         }
         loadImage();
-        if (role.equals("Guide")) getGuideData();
     }
 
     public String getLangsString() {
@@ -341,13 +342,10 @@ public class MySing {
         return la;
     }
 
-    public void getGuideData() {
+    public void getGuideData(final ProgressDialog progressDialog) {
         ParseUser user = ParseUser.getCurrentUser();
-        try {
-            user.fetch();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        user.fetchIfNeededInBackground();
+
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Guide");
 
         query.whereEqualTo("PointerToUser", user);
@@ -369,6 +367,7 @@ public class MySing {
                     MySing.getInstance().setRatesNum(ratesn);
                     MySing.getInstance().setMySpecs(spe);
                 }
+                progressDialog.cancel();
             }
         });
     }
