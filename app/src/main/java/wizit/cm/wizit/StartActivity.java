@@ -22,12 +22,16 @@ import com.with.tours.ToursList;
 
 public class StartActivity extends AppCompatActivity {
 
+	private ProgressDialog mPd;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.with.tourbuilder.R.layout.activity_start);
-
-		MySing.getInstance();
+ 		mPd = new ProgressDialog(this);
+		mPd.setMessage("Loading guide data...");
+		mPd.show();
+		MySing.getInstance().getGuideData(mPd);
 		MySing.getInstance().setImGuide(true);
 		CitySing.getInstance();
 		DateSing.getInstance().dates(MySing.getInstance().getName());

@@ -85,7 +85,10 @@ public class MainActivity extends ActionBarActivity implements IPostListener,IRe
 
 		mMapView.setBuiltInZoomControls(true);
 		mMapView.setMultiTouchControls(true);
-		if(MySing.getInstance().getCity().equals("Tel-Aviv")){
+		if (MySing.getInstance().getCity() == null) {
+			mMyLocation = new GeoPoint(32.808899, 34.983733);
+		}
+		else if(MySing.getInstance().getCity().equals("Tel-Aviv")){
 			mMyLocation = new GeoPoint(32.069454, 34.765379);
 		}
 		else if(MySing.getInstance().getCity().equals("Jerusalem")){

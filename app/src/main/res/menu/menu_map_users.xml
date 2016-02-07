@@ -1,5 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="wizit.cm.wizit.MapUsers">
-    <item android:id="@+id/chanRadius" android:title="SETTINGS" />
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="wizit.cm.wizit.MapUsers">
+    <item android:id="@+id/chanRadius"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:visible="true"
+        android:title="SETTINGS" />
 </menu>
