@@ -8,5 +8,13 @@
         android:id="@+id/tourDetails"
         android:title="TOUR DETAILS">
     </item>
+    <item
+        android:id="@+id/regRequests"
+        android:title="REGISTRTRATION REQUESTS">
+    </item>
+    <item
+        android:id="@+id/regUsers"
+        android:title="REGISTERED USERS">
+    </item>
 
 </menu>

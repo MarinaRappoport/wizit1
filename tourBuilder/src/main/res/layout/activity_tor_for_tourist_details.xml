@@ -2,16 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding5"
-    android:background="@color/BlueLight"
-
-    tools:context="com.with.tourbuild.TourForTouristDetails">
+    android:background="@color/material_grey_800">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Medium Text"
         android:layout_marginBottom="10dp"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="24sp"
         android:id="@+id/tournFu"
         android:layout_alignParentTop="true"
@@ -21,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Medium Text"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="18sp"
         android:id="@+id/tourdFu"
         android:layout_marginTop="39dp"
@@ -35,7 +33,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Price: $"
         android:layout_marginTop="10dp"
-        android:textColor="#d50000"
+        android:textColor="#00cad5"
         android:textSize="18sp"
         android:id="@+id/textView12"
         android:layout_marginRight="10dp"
@@ -47,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#d50000"
+        android:textColor="#00cad5"
         android:textSize="18sp"
         android:layout_marginRight="5dp"
         android:id="@+id/tourpFu"
@@ -61,18 +59,20 @@
         android:padding="10dp"
         android:textColor="#fff"
         android:id="@+id/button7"
-        android:layout_marginTop="10dp"
         android:onClick="voteT"
-        android:background="@drawable/nice_button"
+        android:background="@drawable/button"
+        android:layout_marginBottom="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/imvTourImage"
+        android:layout_toEndOf="@+id/imvTourImage" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tourRat"
-        android:layout_above="@+id/button7"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/button7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="150dp"
@@ -82,4 +82,28 @@
         android:layout_below="@+id/tournFu"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Show on map"
+        android:textColor="#fff"
+        android:background="@drawable/button"
+        android:id="@+id/bShowTourOnMap"
+        android:onClick="showTourOnMap"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Register for tour"
+        android:textColor="#fff"
+        android:background="@drawable/button"
+        android:id="@+id/bRegisterForTour"
+        android:onClick="registerForTour"
+        android:layout_alignTop="@+id/bShowTourOnMap"
+        android:layout_alignRight="@+id/button7"
+        android:layout_alignEnd="@+id/button7" />
 </RelativeLayout>

@@ -1,9 +1,10 @@
-package com.with.tourbuild;
+package com.with.tours;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,11 +16,17 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.withcommon.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.with.tourbuild.Calendar;
+import com.with.tourbuild.CommonShared;
+import com.with.tourbuild.LogOS;
+import com.with.tourbuild.MySing;
+import com.with.tourbuild.Tour;
+import com.with.tourbuilder.R;
 
 import java.util.List;
 
@@ -58,7 +65,8 @@ public class TourForTouristDetails extends Activity {
                 tourPrice.setText(String.valueOf(tour.getmPrice()));
                 rb = (RatingBar)findViewById(R.id.tourRat);
                 Drawable stars = rb.getProgressDrawable();
-                stars.setTint(Color.CYAN);
+                DrawableCompat.setTint(stars, Color.CYAN);
+               // stars.setTint(Color.CYAN);
 
                 rb.setRating(tour.finRate());
             }
@@ -93,4 +101,19 @@ public class TourForTouristDetails extends Activity {
         }
     }
 
+    public void showTourOnMap(View view) {
+        Intent intent1 = new Intent(getApplicationContext(), ToursActivity.class);
+        intent1.putExtra("tourId", tourId);
+        startActivity(intent1);
+
+    }
+
+    public void registerForTour(View view) {
+        if (ParseUser.getCurrentUser() == null){
+            startActivity(new Intent(getApplicationContext(), LogOS.class));
+        }
+        else
+            startActivityForResult(new Intent(getApplicationContext(), Calendar.class).putExtra("Name", CommonShared.getInstance().getmTours().get(tourId).getmGuideName()), 7);
+
+    }
 }
