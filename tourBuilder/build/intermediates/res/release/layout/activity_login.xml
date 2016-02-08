@@ -4,15 +4,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@color/BlueLight"
+    android:background="@color/material_grey_850"
     tools:context="com.with.tourbuild.Login">
 
     <EditText
         android:id="@+id/logName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000"
-        android:textColorHighlight="#000"
+        android:textColor="#fff"
+        android:textColorHighlight="#fff"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/signName"
@@ -25,10 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:textColorHighlight="#000"
+        android:textColorHighlight="#fff"
         android:inputType="textPassword"
         android:ems="10"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:layout_below="@+id/logName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -39,12 +39,11 @@
         android:text="Login"
         android:layout_marginTop="10dp"
         android:textColor="#fff"
-        android:background="@drawable/nice_button"
+        android:background="@drawable/button"
         android:onClick="login"
         android:id="@+id/loginBut"
         android:layout_below="@+id/logPass"
         android:layout_centerHorizontal="true" />
-
 
 </RelativeLayout>
 <!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/src/main/res/layout/activity_login.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/build/intermediates/exploded-aar/wizit1/withCommon/unspecified/res/layout/activity_login.xml -->

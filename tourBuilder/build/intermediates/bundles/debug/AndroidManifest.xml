@@ -51,6 +51,10 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.with.tours.TourForTouristDetails"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.with.tourbuild.TourDetailsActivity"
             android:screenOrientation="portrait" >
         </activity>

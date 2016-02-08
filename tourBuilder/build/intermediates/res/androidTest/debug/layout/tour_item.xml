@@ -3,16 +3,28 @@
     android:padding="5dp"
     android:layout_height="fill_parent">
 
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/imvTourSmall"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"/>
+
     <TextView
         android:id="@+id/listTourName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="list tour name"
         android:textColor="#000"
-        android:layout_marginBottom="5dp"
         android:textSize="25sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/imvTourSmall"
+        android:layout_toEndOf="@+id/imvTourSmall"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -23,7 +35,8 @@
         android:textSize="17sp"
         android:id="@+id/descInList"
         android:layout_below="@+id/listTourName"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignLeft="@+id/listTourName"
+        android:layout_alignStart="@+id/listTourName" />
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -31,8 +44,8 @@
         style="?android:attr/ratingBarStyleIndicator"
         android:id="@+id/TourRaTab"
         android:layout_below="@+id/descInList"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/listTourName"
+        android:layout_alignStart="@+id/listTourName" />
 
 
-</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/src/main/res/layout/tour_item.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/build/intermediates/bundles/debug/res/layout/tour_item.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/src/main/res/layout/tour_item.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/build/intermediates/bundles/debug/res/layout/tour_item.xml -->

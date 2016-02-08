@@ -24,4 +24,4 @@
         android:layout_alignTop="@+id/listAllTours"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
-<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/src/main/res/layout/activity_all_my_tours.xml -->
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/src/main/res/layout/activity_all_my_tours.xml -->
