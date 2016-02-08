@@ -1,12 +1,17 @@
 package com.with.tourbuild;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;
 import java.util.Vector;
 
+import com.example.withcommon.R;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -50,7 +55,7 @@ public class CommonShared {
 		
 	}
 	
-	public void ReadTours(List<ParseObject> objects) {
+	public void ReadTours(List<ParseObject> objects, Context context) {
 		mTours.clear();
 		for(int i = 0; i<objects.size();i++) {
 			final Tour tour = new Tour();
@@ -62,6 +67,8 @@ public class CommonShared {
 			tour.setmPrice(objects.get(i).getInt("Price"));
 			tour.setmRatesNumber(objects.get(i).getInt("RatesNumber"));
 			tour.setmParseObject(objects.get(i));
+			Drawable drawable = ContextCompat.getDrawable(context, R.drawable.avatours);
+			tour.setmTourImage(((BitmapDrawable) drawable).getBitmap());
 
 			ParseFile parseFile = objects.get(i).getParseFile("image");
 			if (parseFile != null) {
@@ -69,6 +76,11 @@ public class CommonShared {
 					@Override
 					public void done(byte[] bytes, ParseException e) {
 						tour.setmTourImage(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
+						if (mUpdateGuiListener != null) {
+							mUpdateGuiListener.UpdateTours();
+						}
+
+
 					}
 				});
 			}

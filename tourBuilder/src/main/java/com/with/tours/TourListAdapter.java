@@ -46,9 +46,15 @@ public class TourListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 
+
 		RelativeLayout rl = null;
-		LayoutInflater inflater = (LayoutInflater) myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		rl = (RelativeLayout) inflater.inflate(R.layout.tour_item, parent, false);
+		if(convertView!=null) {
+			rl = (RelativeLayout) convertView;
+		}else {
+			LayoutInflater inflater = (LayoutInflater) myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			rl = (RelativeLayout) inflater.inflate(R.layout.tour_item, parent, false);
+
+		}
 
 		RatingBar rb = (RatingBar)rl.findViewById(R.id.TourRaTab);
 		TextView tourName = (TextView) rl.findViewById(R.id.listTourName);
@@ -67,5 +73,4 @@ public class TourListAdapter extends BaseAdapter {
 		}
 		return rl;
 	}
-
 }

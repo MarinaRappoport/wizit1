@@ -59,6 +59,10 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.with.tours.TourForTouristDetails"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.with.tourbuild.TourDetailsActivity"
             android:screenOrientation="portrait" >
         </activity>
@@ -158,10 +162,6 @@
 
         <service android:name="com.with.tourbuild.GPS_Tracker" />
 
-        <activity
-            android:name="com.with.tourbuild.TourForTouristDetails"
-            android:screenOrientation="portrait" >
-        </activity>
         <activity
             android:name="com.with.tourbuild.AllRequests"
             android:screenOrientation="portrait" >

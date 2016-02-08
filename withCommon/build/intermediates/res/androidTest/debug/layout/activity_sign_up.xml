@@ -2,112 +2,124 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding5"
-    android:background="@color/BlueLight"
+    android:background="@drawable/bg"
     tools:context="com.with.tourbuild.SignUp">
 
-    <EditText
-        android:id="@+id/signName"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/grayreg"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:hint="Name"
-        android:ems="10" >
+        android:id="@+id/signupLayout">
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/signName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:hint="Name"
+            android:ems="10" >
 
-    <EditText
-        android:id="@+id/signMail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/signName"
-        android:hint="E-Mail"
-        android:inputType="textEmailAddress"
-        android:ems="10" />
+            <requestFocus />
+        </EditText>
 
-    <EditText
-        android:id="@+id/signPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/signMail"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:ems="10" />
+        <EditText
+            android:id="@+id/signMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/signName"
+            android:hint="E-Mail"
+            android:inputType="textEmailAddress"
+            android:ems="10" />
 
-    <EditText
-        android:id="@+id/signConPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/signPass"
-        android:hint="Confirm Password"
-        android:layout_marginBottom="20dp"
-        android:inputType="textPassword"
-        android:ems="10" />
+        <EditText
+            android:id="@+id/signPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/signMail"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:ems="10" />
+
+        <EditText
+            android:id="@+id/signConPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/signPass"
+            android:hint="Confirm Password"
+            android:layout_marginBottom="20dp"
+            android:inputType="textPassword"
+            android:ems="10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Languages: "
+            android:textColor="#fff"
+            android:id="@+id/textView9"
+            android:layout_below="@+id/signConPass"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/langSp"
+            android:layout_below="@+id/textView9"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/button3"
+            android:layout_toStartOf="@+id/button3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:background="@drawable/btn_add"
+            android:textSize="20dp"
+            android:textColor="#fff"
+            android:onClick="addLang"
+            android:id="@+id/button3"
+            android:padding="10dp"
+            android:layout_alignTop="@+id/langSp"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:clickable="true"
+            android:textColor="#fff"
+            android:onClick="contex1"
+            android:id="@+id/myLangsTv"
+            android:layout_below="@+id/langSp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/signUpButt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:onClick="signUp"
-        android:background="@drawable/nice_button"
+        android:background="@drawable/button"
         android:textColor="#fff"
         android:text="Sign Up"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Languages: "
-        android:textColor="#000"
-        android:id="@+id/textView9"
-        android:layout_below="@+id/signConPass"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/langSp"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/button3"
-        android:layout_toStartOf="@+id/button3" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add"
-        android:background="@drawable/nice_button"
-        android:textColor="#fff"
-        android:onClick="addLang"
-        android:id="@+id/button3"
-        android:padding="10dp"
-        android:layout_alignTop="@+id/langSp"
-        android:layout_alignParentRight="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:clickable="true"
-        android:textColor="#000"
-        android:onClick="contex1"
-        android:id="@+id/myLangsTv"
-        android:layout_below="@+id/langSp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-
 </RelativeLayout>
-<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/src/main/res/layout/activity_sign_up.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/withCommon/build/intermediates/bundles/debug/res/layout/activity_sign_up.xml -->
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/src/main/res/layout/activity_sign_up.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/withCommon/build/intermediates/bundles/debug/res/layout/activity_sign_up.xml -->

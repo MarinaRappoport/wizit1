@@ -4,14 +4,25 @@
     android:layout_height="match_parent"
     tools:context=".MapActivity" >
 
-        <org.osmdroid.views.MapView
-	    xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:id="@+id/toursmap"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:clickable="true">
-	</org.osmdroid.views.MapView>	
+        <!--<org.osmdroid.views.MapView-->
+	    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+	    <!--android:id="@+id/toursmap"-->
+	    <!--android:layout_width="fill_parent"-->
+	    <!--android:layout_height="fill_parent"-->
+	    <!--android:clickable="true">-->
+	<!--</org.osmdroid.views.MapView>	-->
+
+	<com.masa.tlalim.offlinemap.HybridMap
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/hybridToursMap"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentTop="true"
+		android:gravity="top|left" />
   
     
 </RelativeLayout>
-<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/src/main/res/layout/activity_tours.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/build/intermediates/bundles/debug/res/layout/activity_tours.xml -->
+<!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/src/main/res/layout/activity_tours.xml --><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/build/intermediates/bundles/debug/res/layout/activity_tours.xml -->

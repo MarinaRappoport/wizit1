@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,31 +26,35 @@ public class SignUp extends Activity {
     boolean gui;
     Spinner langSp;
     TextView langsTv;
+    private RelativeLayout rl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        langsTv = (TextView)findViewById(R.id.myLangsTv);
+        rl = (RelativeLayout) findViewById(R.id.signupLayout);
+        langsTv = (TextView) rl.findViewById(R.id.myLangsTv);
         registerForContextMenu(langsTv);
-        langSp = (Spinner)findViewById(R.id.langSp);
+        langSp = (Spinner) rl.findViewById(R.id.langSp);
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             if (!extras.isEmpty()){
                 gui = extras.getBoolean("guide");}}
 
+        if(MySing.getInstance().getLangs().size()==0){
+            MySing.getInstance().getAllLangs();
+        }
+
         ArrayAdapter<String> laAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, MySing.getInstance().getLangs());
         laAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         langSp.setAdapter(laAdapter);
-
-
     }
 
     public void signUp(View v){
-        EditText name  = (EditText)findViewById(R.id.signName);
-        EditText email = (EditText)findViewById(R.id.signMail);
-        EditText p1 = (EditText)findViewById(R.id.signPass);
-        EditText p2 = (EditText)findViewById(R.id.signConPass);
+        EditText name  = (EditText) rl.findViewById(R.id.signName);
+        EditText email = (EditText) rl.findViewById(R.id.signMail);
+        EditText p1 = (EditText) rl.findViewById(R.id.signPass);
+        EditText p2 = (EditText) rl.findViewById(R.id.signConPass);
 
         if (MySing.getInstance().getMyLangs().isEmpty()){
             Toast.makeText(getApplicationContext(), "You must choose at least one language", Toast.LENGTH_LONG).show();

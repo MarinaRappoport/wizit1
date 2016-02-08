@@ -19,11 +19,14 @@
 
     <EditText
         android:id="@+id/tourName"
+        android:textColor="#000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:ems="10" >
+        android:ems="10"
+        android:layout_toLeftOf="@+id/imvTour"
+        android:layout_toStartOf="@+id/imvTour">
 
         <requestFocus />
     </EditText>
@@ -32,16 +35,18 @@
         android:id="@+id/descr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tourName"
-        android:layout_marginTop="10dp"
         android:textColor="#000"
         android:text="DESCRIPTION"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_below="@+id/imvTour"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/tourDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#000"
         android:layout_alignLeft="@+id/descr"
         android:layout_below="@+id/descr"
         android:layout_marginBottom="20dp"
@@ -122,10 +127,21 @@
         android:textColor="#000"
         android:textSize="14sp"
         android:ems="10"
+        android:text="0"
         android:id="@+id/price"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_toLeftOf="@+id/imvTour"
+        android:layout_toStartOf="@+id/imvTour" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/imvTour"
+        android:onClick="addTourImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/descr"
+        android:layout_alignEnd="@+id/descr" />
 
 
-</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit/Wizit/tourBuilder/src/main/res/layout/activity_tour_data.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Marina/AndroidStudioProjects/GitProject/wizit1/tourBuilder/src/main/res/layout/activity_tour_data.xml -->

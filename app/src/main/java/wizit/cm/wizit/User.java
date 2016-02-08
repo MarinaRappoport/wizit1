@@ -94,6 +94,7 @@ public class User extends Activity {
         MySing.getInstance().logout();
         Toast.makeText(getApplicationContext(), "Logged out", Toast.LENGTH_LONG).show();
         LoginManager.getInstance().logOut();
+        startActivity(new Intent(getApplicationContext(),WelcomeActivity.class));
         finish();
 
     }
