@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/acc_settings" android:icon="@drawable/settings"
+            android:title="Account settings" />
+        <item android:id="@+id/become_guide" android:icon="@drawable/man"
+            android:title="Become a guide" />
+        <item android:id="@+id/conversations" android:icon="@drawable/conversations"
+            android:title="My conversations" />
+        <item android:id="@+id/future_tours" android:icon="@drawable/futuretours"
+            android:title="Future tours" />
+        <item android:id="@+id/map" android:icon="@drawable/map"
+            android:title="Map" />
+    </group>
+
+    <item android:title="Favorites">
+        <menu>
+            <item android:id="@+id/myguides" android:icon="@drawable/heart"
+                android:title="My guides" />
+            <item android:id="@+id/mytours" android:icon="@drawable/heart"
+                android:title="My tours" />
+        </menu>
+    </item>
+
+    <item android:title="Info">
+        <menu>
+            <item android:id="@+id/off_guides" android:icon="@drawable/official"
+                android:title="Official guides" />
+            <item android:id="@+id/off_tours" android:icon="@drawable/official"
+                android:title="Official tours" />
+        </menu>
+    </item>
+
+</menu>

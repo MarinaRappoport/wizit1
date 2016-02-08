@@ -7,12 +7,20 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.parse.FindCallback;
@@ -33,7 +41,8 @@ import com.with.tourbuild.MySing;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
 //    add drawer
 
@@ -45,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         Intent intent = getIntent();
         String finish = intent.getStringExtra("finish");
@@ -53,6 +62,19 @@ public class MainActivity extends AppCompatActivity {
             finish();
             System.exit(0);
         }
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
 
         MySing.getInstance().getAllSpecs();
         MySing.getInstance().getAllInterests();
@@ -87,74 +109,74 @@ public class MainActivity extends AppCompatActivity {
         getCity();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.mapUsers){
-            if(ParseUser.getCurrentUser() == null){
-                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
-                startActivity(authintent);}
-            else{
-            Intent mapintent = new Intent(getApplicationContext(), MapUsers.class);
-            startActivity(mapintent);}
-        }
-        if (id == R.id.allConvers){
-            if(ParseUser.getCurrentUser() == null){
-                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
-                startActivity(authintent);}
-            else{
-            Intent convint = new Intent(getApplicationContext(), AllChats.class);
-            startActivity(convint);}
-        }
-        if (id == R.id.allMytours){
-            if(ParseUser.getCurrentUser() == null){
-                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
-                startActivity(authintent);}
-            else{
-            Intent allIntent = new Intent(getApplicationContext(), AllMyTours.class).putExtra("role", "userName");
-            startActivity(allIntent);}
-        }
-
-        if (id == R.id.user) {
-            if(ParseUser.getCurrentUser() == null){
-                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
-                startActivity(authintent);}
-            else{
-                Intent userintent = new Intent(getApplicationContext(), User.class);
-                startActivity(userintent);}
-        }
-
-        if (id == R.id.beGuiMe){
-            if(ParseUser.getCurrentUser() == null){
-
-                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
-                authintent.putExtra("guide", true);
-                startActivity(authintent);
-            }
-            else{
-                SharedPreferences sharedPreferences = getSharedPreferences("wizit", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("role", "Guide");
-                editor.commit();
-                if(ParseUser.getCurrentUser().get("Role").toString().equals("Tourist")){
-                    Intent intent = new Intent(getApplicationContext(), BecomeGuide.class);
-                    startActivity(intent);}
-                if(ParseUser.getCurrentUser().get("Role").toString().equals("Guide")){
-                    Intent intent = new Intent(getApplicationContext(), StartActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                }
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//
+//        if (id == R.id.mapUsers){
+//            if(ParseUser.getCurrentUser() == null){
+//                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+//                startActivity(authintent);}
+//            else{
+//            Intent mapintent = new Intent(getApplicationContext(), MapUsers.class);
+//            startActivity(mapintent);}
+//        }
+//        if (id == R.id.allConvers){
+//            if(ParseUser.getCurrentUser() == null){
+//                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+//                startActivity(authintent);}
+//            else{
+//            Intent convint = new Intent(getApplicationContext(), AllChats.class);
+//            startActivity(convint);}
+//        }
+//        if (id == R.id.allMytours){
+//            if(ParseUser.getCurrentUser() == null){
+//                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+//                startActivity(authintent);}
+//            else{
+//            Intent allIntent = new Intent(getApplicationContext(), AllMyTours.class).putExtra("role", "userName");
+//            startActivity(allIntent);}
+//        }
+//
+//        if (id == R.id.user) {
+//            if(ParseUser.getCurrentUser() == null){
+//                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+//                startActivity(authintent);}
+//            else{
+//                Intent userintent = new Intent(getApplicationContext(), User.class);
+//                startActivity(userintent);}
+//        }
+//
+//        if (id == R.id.beGuiMe){
+//            if(ParseUser.getCurrentUser() == null){
+//
+//                Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+//                authintent.putExtra("guide", true);
+//                startActivity(authintent);
+//            }
+//            else{
+//                SharedPreferences sharedPreferences = getSharedPreferences("wizit", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.putString("role", "Guide");
+//                editor.commit();
+//                if(ParseUser.getCurrentUser().get("Role").toString().equals("Tourist")){
+//                    Intent intent = new Intent(getApplicationContext(), BecomeGuide.class);
+//                    startActivity(intent);}
+//                if(ParseUser.getCurrentUser().get("Role").toString().equals("Guide")){
+//                    Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                    startActivity(intent);
+//                }
+//            }
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     public void getCity(){
         mPd= new ProgressDialog(this);
@@ -208,5 +230,80 @@ public class MainActivity extends AppCompatActivity {
             }
         });}
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.acc_settings:
+                if(ParseUser.getCurrentUser() == null){
+                    Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+                    startActivity(authintent);}
+                else{
+                    Intent userintent = new Intent(getApplicationContext(), User.class);
+                    startActivity(userintent);}
+                break;
+            case R.id.become_guide:
+                if(ParseUser.getCurrentUser() == null){
+
+                    Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+                    authintent.putExtra("guide", true);
+                    startActivity(authintent);
+                }
+                else{
+                    SharedPreferences sharedPreferences = getSharedPreferences("wizit", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("role", "Guide");
+                    editor.commit();
+                    if(ParseUser.getCurrentUser().get("Role").toString().equals("Tourist")){
+                        Intent intent = new Intent(getApplicationContext(), BecomeGuide.class);
+                        startActivity(intent);}
+                    if(ParseUser.getCurrentUser().get("Role").toString().equals("Guide")){
+                        Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
+                }
+                break;
+            case R.id.conversations:
+                if(ParseUser.getCurrentUser() == null){
+                    Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+                    startActivity(authintent);}
+                else{
+                    Intent convint = new Intent(getApplicationContext(), AllChats.class);
+                    startActivity(convint);}
+                break;
+            case R.id.future_tours:
+                if(ParseUser.getCurrentUser() == null){
+                    Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+                    startActivity(authintent);}
+                else{
+                    Intent allIntent = new Intent(getApplicationContext(), AllMyTours.class).putExtra("role", "userName");
+                    startActivity(allIntent);}
+                break;
+            case R.id.map:
+                if(ParseUser.getCurrentUser() == null){
+                    Intent authintent = new Intent(getApplicationContext(), Authorize.class);
+                    startActivity(authintent);}
+                else{
+                    Intent mapintent = new Intent(getApplicationContext(), MapUsers.class);
+                    startActivity(mapintent);}
+                break;
+            case R.id.myguides:
+                break;
+            case R.id.mytours:
+                break;
+            case R.id.off_guides:
+                break;
+            case R.id.off_tours:
+                break;
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

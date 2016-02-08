@@ -26,7 +26,8 @@ dependencies {
     compile 'com.parse:parse-android:1.10.0'
     compile 'com.parse.bolts:bolts-android:1.2.1'
     compile 'com.facebook.android:facebook-android-sdk:4.5.0'
-    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:design:23.1.0'
     compile project(':tourBuilder')
     compile project(':withCommon')
     compile project(':offlinemap')
